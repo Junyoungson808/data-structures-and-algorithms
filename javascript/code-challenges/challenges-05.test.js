@@ -24,11 +24,11 @@ Write a function named addValues that, given an array of numbers as input, uses 
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr) => {
-  return arr.reduce( (accumulator,value,idx) {
-    accumulator = accumulator + value;
-    return accumulator;
+  return arr.reduce( (a,v,i) => {
+    a = a + v;
+    return a;
   }, 0);
-
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -44,6 +44,10 @@ Write a function named addPurchases that, given an array of objects as input, us
 
 const addPurchases = (arr) => {
   // Solution code here...
+  return arr.reduce( (a,v,i) => {
+    a = a + v.purchasePrice;
+    return a;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,7 +59,10 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-
+  return arr.reduce( (a,v,i) => {
+    a = i + 1;
+    return a;
+  }, 0);
   // Solution code here...
 };
 
@@ -116,11 +123,9 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  return arr.reduce((value) => {
-    value = arr.length;
-    return value;
-
-  })
+  return arr.reduce( (a,v,i) => {
+    return [...a,v.name];
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,10 +135,25 @@ Write a function named reversedString that takes in a string and returns a strin
 
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
+// Got help from Tyler Main & Luis Rosales.
 
 const reversedString = (str) => {
-  // Solution code here...
+  let array = str.split('');
+  let reversedString = array.reduce((reversed, character) => {
+    return character + reversed;
+  }, '');
+  return reversedString;
 };
+
+// Got help from Tyler Main & Luis Rosales.
+// const reversedString = (str) => {
+//   // Solution code here...
+//   let newStr = [...str];
+//   return newStr.reduce((reverse, value, index) =>{
+//     reverse = newStr[index] + reverse;
+//     return reverse;
+//   },'');
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
