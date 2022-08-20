@@ -12,6 +12,11 @@ Push each updated animal string into the new array. Return the new array.
 HINT: Look at the tests to see how the callback functions are used.
 
 ------------------------------------------------------------------------------------------------ */
+/*
+If compareFunction (a,b) is false, a comes first
+If compareFunction (a,b) is 0, leave a and b
+If compareFunction (a,b) is true b comes first.
+*/
 
 function upper(str) {
   return str.toUpperCase();
@@ -35,6 +40,9 @@ For example: 'Cat' would come before 'apple'
 
 const sortNames = (arr) => {
   // Solution code here...
+  return arr.sort((v,i) => {
+    if( )
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
