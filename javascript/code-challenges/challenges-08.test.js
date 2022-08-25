@@ -52,9 +52,9 @@ let characters = [
   },
 ];
 
-const sortByChildren = (charArray) => {
-  return charArray.sort((house1, house2) => {
-    if ( house1.children.length === house2.children.length ) {
+const sortByChildren = (charArray) =>
+  charArray.sort((house1, house2) => {
+    if (house1.children.length === house2.children.length) {
       const nameA = house1.name.toUpperCase();
       const nameB = house2.name.toUpperCase();
       if (nameA < nameB) {
@@ -68,8 +68,22 @@ const sortByChildren = (charArray) => {
       return house1.children.length - house2.children.length;
     }
   });
-};
 
+// const sortByChildren = (charArray) => charArray.sort((house1, house2) => {
+//   if ( house1.children.length === house2.children.length ) {
+//     const nameA = house1.name.toUpperCase();
+//     const nameB = house2.name.toUpperCase();
+//     if (nameA < nameB) {
+//       return -1;
+//     }
+//     if (nameA > nameB) {
+//       return 1;
+//     }
+//     return 0;
+//   } else {
+//     return house1.children.length - house2.children.length;
+//   }
+// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -79,7 +93,8 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
-  // Solution code here...
+  const re = new RegExp('/w');
+  return re.test;
 };
 
 /* ------------------------------------------------------------------------------------------------

@@ -1,6 +1,5 @@
 "use strict";
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -14,13 +13,11 @@ const addOne = (arr) => {
 
   // Solution code here...
 
-  arr.forEach((value,index) => {
+  arr.forEach((value, index) => {
     newArray.push(++value);
-
-});
-return newArray;
+  });
+  return newArray;
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -31,18 +28,13 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
-
   let newArray = [];
   // Solution code here...
 
-  arr.forEach((value,index) => {
+  arr.forEach((value) => {
     newArray.push(value + "!");
-
-});
-
-return newArray;
-
-
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -54,22 +46,16 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-
   let newArray = [];
-
   // Solution code here...
-
-arr.forEach((value,index) => {
-
-
-})
+  arr.forEach((value, index) => {
+    newArray.push(value).toU
+  });
 
   // arr.forEach((value,index => {
   //   newArray.push(value.allUpperCase);
 
   // });
-
-
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -167,7 +153,6 @@ Run your tests from the console: jest challenges-01.test.js
 
 describe("Testing challenge 1", () => {
   test("It should return an array with 1 added to each value of the original array", () => {
-
     expect(addOne([1, 2, 3, 4, 5])).toStrictEqual([2, 3, 4, 5, 6]);
   });
 });
@@ -206,7 +191,6 @@ describe("Testing challenge 4", () => {
 
 describe("Testing challenge 5", () => {
   test("It should add the number 8 to the array five times", () => {
-
     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
   });
@@ -227,7 +211,6 @@ describe("Testing challenge 6", () => {
     expect(createList(inventory).length).toStrictEqual(3);
   });
 });
-
 
 xdescribe("Testing challenge 7", () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
