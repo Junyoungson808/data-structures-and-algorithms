@@ -93,8 +93,10 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
-  const re = new RegExp('/w');
-  return re.test;
+  const re = /[A-Z][a-z]*/;
+  const result = [];
+  str.forEach(v => re.match(v) ? result.push(v) : false);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -134,6 +136,10 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
+  const re = /[A-Z][a-z]*/;
+  const result = [];
+  str.forEach(v => re.match(v) ? result.push(v) : false);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,6 +150,10 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  const re = /^[A-J]/;
+  const result = [];
+  arr.forEach(v => re.test(v) ? result.push(v) : false);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
