@@ -80,7 +80,13 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
-
+  let hourlyTotals = [];
+  stores.forEach(store => {
+    store.forEach((cookies, i) => {
+      
+    });
+  });
+  return hourlyTotals;
 };
 
 /* ------------------------------------------------------------------------------------------------
