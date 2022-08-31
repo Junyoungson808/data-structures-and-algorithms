@@ -59,6 +59,31 @@ const allUpperCase = (arr) => {
   // });
 };
 
+
+
+// input: ['C', 'o', 'd', 'e', '3', '0', '1']
+// output: [ 67, 111, 100, 101, 51, 48, 49 ]
+// edge cases to your inputs --> output? input:[]  output:[]
+
+const charCode = (arr) => {
+  // input is an array - iterate through the array
+  // look at each element - and convert string to upper case - using charCodeAt (method)
+  // once I have that code for each element, i need to populate a new array with each one of those UT-16 numbers
+  // edge case, what if my element in the array is a larger string?
+
+  // Explicit return {}
+
+  // let mappedArr = arr.map(element => {
+  // return element.charCodeAt());
+  // return arr.map();
+
+  // Implicit return ()
+  // Arrow function one liner
+
+  let mappedArr = arr.map(element => element.charCodeAt());
+  return mappedArr;
+};
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 

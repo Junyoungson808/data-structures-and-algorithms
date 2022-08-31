@@ -34,6 +34,7 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
+  return target.filter((v) => (v === input)).length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,6 +49,10 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+input.reduce((total, item) => {
+return total + input
+}, 0);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
