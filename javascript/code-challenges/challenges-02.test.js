@@ -96,9 +96,28 @@ Read the MDN documentation on String.charCodeAt() if necessary.
 
 For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
+// input: ['C', 'o', 'd', 'e', '3', '0', '1']
+// output: [ 67, 111, 100, 101, 51, 48, 49 ]
+// edge cases to your inputs --> output? input:[]  output:[]
 
 const charCode = (arr) => {
   // Solution code here...
+  // input is an array - iterate through the array
+  // look at each element - and find its UT-16 number - using charCodeAt (method)
+  // once I have that code for each element, i need to populate a new array with each one of those UT-16 numbers
+  // edge case, what if my element in the array is a larger string?
+
+  // Explicit return {}
+
+  // let mappedArr = arr.map(element => {
+  // return element.charCodeAt());
+  // return arr.map();
+
+  // Implicit return ()
+  // Arrow function one liner
+
+  let mappedArr = arr.map(element => element.charCodeAt());
+  return mappedArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -110,9 +129,32 @@ If any element in the array is not a number, the resulting array should have the
 
 For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
+/*
+input:  [5, 8, 2, 6, 9, 13, 542, 541]  output:  [ 'odd', 'even', 'even', 'even', 'odd', 'odd', 'even', 'odd' ]
+input:  [5, 8, 2, 'hi']  output:  []
+input:  []  output:  []
 
+*/
 const evenOdd = (arr) => {
   // Solution code here...
+/* input is an arr - iterate and look at every element
+  looking at every element -- is it not a number? -> return 'N/A'
+  looking at every element -- is it even? - is that element divisible by 2 with no remainder-> return "even"
+  looking at every element -- is it odd? // everything is -> "odd" (is element divisible by 2 with remainder of 1)
+  way to add those return values to our array to return at the end.
+
+*/
+  // let mappedArr =arr.map(()=>);
+  let mappedArr = arr.map(element => {
+    if(typeof element !== 'number') {
+      return 'N/A';
+    } else if(element % 2 === 0){
+      return 'even';
+    } else {
+      return 'odd';
+    }
+  });
+  return mappedArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -270,14 +312,14 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array containing the character code for each letter', () => {
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1'])).toStrictEqual([ 67, 111, 100, 101, 51, 48, 49 ]);
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1']).length).toStrictEqual(7);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return an array containing the keys from an object', () => {
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541])).toStrictEqual([ 'odd', 'even', 'even', 'even', 'odd', 'odd', 'even', 'odd' ]);
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541]).length).toStrictEqual(8);
