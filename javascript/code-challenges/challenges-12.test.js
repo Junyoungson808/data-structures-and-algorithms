@@ -23,8 +23,7 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 
 const validatePin = (pin) => {
   // Solution code here...
-  const reg = /\d{4}/g;
-  if( )
+  const reg = /\b\d{4}\b/g;
   const newPin = reg.test(pin);
   return newPin;
 };
