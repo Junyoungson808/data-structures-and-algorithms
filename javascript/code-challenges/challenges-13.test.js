@@ -28,16 +28,18 @@ Write a function named firstLetters that takes in an array of strings and return
 
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 'w', 'w', ':']
 ------------------------------------------------------------------------------------------------ */
-
+// [c];
 
 
 const firstLetters = (arr) => {
-  // Solution code here...
-  for (let i = 0; i < arr.length ; i++) {
-
+  var newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(arr[i].charAt(0));
   }
-  return ;
+  // console.log('this check',newArr);
+  return newArr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
