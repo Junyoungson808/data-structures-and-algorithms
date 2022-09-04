@@ -12,7 +12,9 @@ Write a function named screenForNames that takes in an array of strings and uses
 
 const screenForNames = (arr) => {
   // Solution code here...
-}
+  let regPattern = /(?:Mr\.|Mrs\.|Ms\.|Dr\.) [a-zA-Z]+/g;
+  return regPattern.test(arr);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -103,8 +105,12 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  let luke = arr.find(char => char.name === 'Luke Skywalker');
+  return arr
+    .filter((personobj) => +personobj.mass > luke.mass )
+    .map((person) => person.name)
+    .join(' - ');
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 Write a function named sortBy that takes in an array of objects, each of which has a particular property, and sorts those objects by that property, lowest to highest, returning the same array.
@@ -121,6 +127,7 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
+  return arr.sort((a,b) => a.price > b.price );
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -137,6 +144,8 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
+  let regTest = /(https:)/g
+  return regTest.test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -160,6 +169,7 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
