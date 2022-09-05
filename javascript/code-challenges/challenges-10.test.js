@@ -83,7 +83,7 @@ const grandTotal = (stores) => {
   let hourlyTotals = [];
   stores.forEach(store => {
     store.forEach((cookies, i) => {
-      
+
     });
   });
   return hourlyTotals;
