@@ -63,12 +63,12 @@ For example, (123) 456-7890 returns 1234567890
 
 // map(callbackfunc:()=> {})
 ------------------------------------------------------------------------------------------------ */
+// iterate through the incoming array-> retunr an array
+// use map for every string, we'll call substring pass in the appropriate index...
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
-return arr.map()
-
-
+  return arr.map(number => `${number.substring(1, 4)}${number.substring(6, 9)}${number.substring(10)}`);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,11 +93,14 @@ const onlyOddChars = (str) => {
 CHALLENGE 6
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
+
+// .every on the array
+// test for the every method str.includes(':)')
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
   // Solution code here...
-  return arr.every(arr.includes((string) => string.includes(':)')));
+  return arr.every(str => str.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
