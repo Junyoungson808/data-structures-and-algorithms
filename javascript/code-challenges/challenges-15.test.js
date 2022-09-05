@@ -130,15 +130,20 @@ Here is an example of the input:
 
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
+// sort on the array (a,b)
+// a,b are objects
+// a[property] > b[property] ? 1 : -1
+
 
 const sortBy = (property, arr) => {
   // Solution code here...
-  return arr.sort(function(a, b) {
-    if( property === 'price' ) {
-      return a.price > b.price;
-    } else if( property === 'name') {
-      return a.name > b.name;
-    }});
+  // return arr.sort(function(a, b) {
+  //   if( property === 'price' ) {
+  //     return a.price > b.price;
+  //   } else if( property === 'name') {
+  //     return a.name > b.name;
+  //   }});
+  return arr.sort((a,b) => a[property] > b[property] ? 1: -1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,7 +160,7 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
-  let regTest = /(https:)/g
+  let regTest = /(^https:\/\/)/g;
   return regTest.test(url);
 };
 
@@ -176,11 +181,42 @@ Here is a sample board:
   ['X', 'O', ''],
   ['X', 'O', 'X'],
 ];
+
+[
+  ['O', '', 'X'],
+  ['X', 'O', 'X'],
+  ['X', '', 'O']
+]
+
+[
+  ['X', '', 'O'],
+  ['O', 'O', ''],
+  ['X', 'O', 'X']
+]
+
+helpCheck(row1, col1, row2, col2, row3, col3)
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+  const helpCheck = (row1, col1, row2, col2, row3, col3) => {
+    return board[row1][col1] !== '' && // make sure the cell isn't empty
+    board[row1][col1] === board[row2][col2] &&
+    board[row2][col2] === board[row3][col3];
+  };
 
+  if(helpCheck(0,0,0,1,0,2)) return true; // top row
+  if(helpCheck(1,0,1,1,1,2)) return true; // middle row
+  if(helpCheck(2,0,2,1,2,2)) return true; // bottom row
+
+  if(helpCheck(0,0,1,0,2,0)) return true; // left column
+  if(helpCheck(0,1,1,1,2,1)) return true; // middle column
+  if(helpCheck(0,2,1,2,2,2)) return true; // right column
+
+  if(helpCheck(0,0,1,1,2,2)) return true; // top left to bottom right
+  if(helpCheck(0,2,1,1,2,0)) return true; // top right to bottom left
+
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
