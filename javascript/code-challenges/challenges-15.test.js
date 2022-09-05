@@ -12,7 +12,15 @@ Write a function named screenForNames that takes in an array of strings and uses
 
 const screenForNames = (arr) => {
   // Solution code here...
-}
+  let newArr = [];
+  let regPattern = /(?:Mr\.|Mrs\.|Ms\.|Dr\.) [a-zA-Z]+/g;
+  arr.forEach((name) => {
+    if(regPattern.test(name)) {
+      newArr.push(name);
+    }
+  });
+  return newArr;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -25,7 +33,7 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 const toTitleCase = (arr) => {
   // Solution code here...
   return arr.map(element => {
-    console.log(arr);
+    // console.log(arr);
     return element.charAt(0).toUpperCase() + element.slice(1);
   });
 };
@@ -103,8 +111,12 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  let luke = arr.find(char => char.name === 'Luke Skywalker');
+  return arr
+    .filter((personobj) => +personobj.mass > luke.mass )
+    .map((person) => person.name)
+    .join(' - ');
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 Write a function named sortBy that takes in an array of objects, each of which has a particular property, and sorts those objects by that property, lowest to highest, returning the same array.
@@ -121,6 +133,12 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
+  return arr.sort(function(a, b) {
+    if( property === 'price' ) {
+      return a.price > b.price;
+    } else if( property === 'name') {
+      return a.name > b.name;
+    }});
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -137,6 +155,8 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
+  let regTest = /(https:)/g
+  return regTest.test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -160,6 +180,7 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
