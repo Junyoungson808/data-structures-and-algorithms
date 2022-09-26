@@ -1,48 +1,61 @@
 'use strict';
 
 class Node {
-  constructor(value){
-    this.value = value;
+  constructor(data) {
+    this.data = data;
     this.next = null;
   }
 }
 
-class LinkedList{
-  constructor(){
+class LinkedList {
+  constructor() {
     this.head = null;
   }
 
-  add(value){
-    const node = new Node(value);
+  add(data) {
+    const node = new Node(data);
 
-    if(!this.head){
+    if (!this.head) {
       this.head = node;
       return;
     }
     //traverse the linked list and add our new node to the end.
     let current = this.head;
     // choosing current.next ON PURPOSE <---- remember
-    while(current.next){
+    while (current.next) {
       current = current.next;
     }
     // next one after this is null <--- remember reassign the new node.
     current.next = node;
   }
 
-  traverse(callback){
-    let current = this.head;
-    while(current){
-      // callback()
-      console.log(current.value);
+  search(head, x) {
+    let current = head;
+    while (current != null) {
+      if (current.data == x)
+        return true;
       current = current.next;
     }
   }
 
-
-
+  traverse() {
+    let current = this.head;
+    while (current) {
+      // callback()
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+  traverseWithBool(boolean) {
+    let current = this.head;
+    while (current != null) {
+      if (current.data == x)
+        return true;
+      current = current.next;
+    }
+    return false;
+  }
 }
-
-
 
 let list = new LinkedList();
 console.log('empty list', list);
@@ -54,3 +67,4 @@ list.add(2);
 console.log('populated list');
 
 list.traverse();
+list.traverseWithBool(2);
