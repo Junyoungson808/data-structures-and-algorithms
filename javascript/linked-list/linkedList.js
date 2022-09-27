@@ -1,8 +1,8 @@
 'use strict';
 
 class Node {
-  constructor(data) {
-    this.data = data;
+  constructor(value) {
+    this.value = value;
     this.next = null;
   }
 }
@@ -12,8 +12,35 @@ class LinkedList {
     this.head = null;
   }
 
-  add(data) {
-    const node = new Node(data);
+
+  insert(value) {
+    this.head = new Node(value, this.head);
+    this.length++;
+  }
+
+  includes(value) {
+    let current = this.head;
+    while (current !== null) {
+      if (current.value === value) {
+        return true;
+      } else {
+        current = current.next;
+      }
+    }
+  }
+
+  toString() {
+    let current = this.head;
+    let string = '';
+    while (current !== null) {
+      string += `${current.value} ->`;
+      current = current.next;
+    }
+    return string + 'null';
+  }
+
+  append(value) {
+    const node = new Node(value);
 
     if (!this.head) {
       this.head = node;
@@ -29,31 +56,36 @@ class LinkedList {
     current.next = node;
   }
 
-  search(head, x) {
-    let current = head;
-    while (current != null) {
-      if (current.data == x)
-        return true;
+  insertBefore(value, newValue) {
+    this.length++;
+    if (this.head.value === value) {
+      this.head = new Node(newValue, this.head);
+      return;
+    }
+
+    let current = this.head;
+    while (current.next.value !== value) {
       current = current.next;
     }
+    current.next = new Node(newValue, current.next);
+  }
+
+  insertAfter(value, newValue) {
+    let current = this.head;
+    while (current.next !== null && current.value !== value) {
+      current = current.next;
+    }
+    current.next = new Node(newValue, current.next);
+    this.length++;
   }
 
   traverse() {
     let current = this.head;
     while (current) {
       // callback()
-      console.log(current.data);
+      console.log(current.value);
       current = current.next;
     }
-  }
-  traverseWithBool(boolean) {
-    let current = this.head;
-    while (current != null) {
-      if (current.data == x)
-        return true;
-      current = current.next;
-    }
-    return false;
   }
 }
 
@@ -68,3 +100,7 @@ console.log('populated list');
 
 list.traverse();
 list.traverseWithBool(2);
+
+module.exports = {
+  LinkedList,
+};
