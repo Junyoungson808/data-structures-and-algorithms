@@ -11,49 +11,86 @@ class LinkedList {
   constructor() {
     this.head = null;
   }
-
-
-  insert(value) {
-    this.head = new Node(value, this.head);
-    this.length++;
-  }
-
-  includes(value) {
-    let current = this.head;
-    while (current !== null) {
-      if (current.value === value) {
-        return true;
-      } else {
-        current = current.next;
-      }
-    }
-  }
-
-  toString() {
-    let current = this.head;
-    let string = '';
-    while (current !== null) {
-      string += `${current.value} ->`;
-      current = current.next;
-    }
-    return string + 'null';
-  }
-
-  append(value) {
+  add(value) {
     const node = new Node(value);
 
+    // if there is no head, assign the new node to the head property
     if (!this.head) {
       this.head = node;
       return;
     }
-    //traverse the linked list and add our new node to the end.
+    // traverse the linked list and add our new node to the end
     let current = this.head;
-    // choosing current.next ON PURPOSE <---- remember
+
+    // choosing current.next ON PURPOSE.
+    // when current.next is null, I will reassign the new node
     while (current.next) {
       current = current.next;
     }
-    // next one after this is null <--- remember reassign the new node.
+    //at this point next is null and we reassign the new node
     current.next = node;
+  }
+
+  traverse() {
+    // we start traversals at the linked list head.  always
+    let current = this.head;
+    while (current) {
+      // when I traverse, I likely need to "do the thing"
+      console.log(current.value);
+      current = current.next;
+    }
+  }
+
+  traverseWithCallback(callback) {
+    // we start traversals at the linked list head.  always
+    let current = this.head;
+    while (current) {
+      // when I traverse, I likely need to "do the thing"
+      callback(current.value);
+      current = current.next;
+    }
+  }
+
+  // Code Challenge 05
+  // add node to FRONT of linked list
+  insert(value) {
+    let node = new Node(value);
+    node.next = this.head;
+    this.head = node;
+  }
+
+  includes(value) {
+    let result = false;
+
+    let current = this.head;
+    while (current) {
+      if (current.value === value) result = true;
+      current = current.next;
+    }
+
+    return result;
+  }
+
+  toString() {
+    let str = '';
+    let current = this.head;
+    while (current) {
+      str += `{ ${current.value} } -> `;
+      current = current.next;
+    }
+    str += 'NULL';
+    return str;
+  }
+
+  // Code Challenge 06
+  append(value) {
+    this.length++;
+    let node = new Node(value);
+
+    if (this.head === null) {
+      this.head = node;
+      return;
+    }
   }
 
   insertBefore(value, newValue) {
@@ -79,28 +116,62 @@ class LinkedList {
     this.length++;
   }
 
-  traverse() {
-    let current = this.head;
-    while (current) {
-      // callback()
-      console.log(current.value);
-      current = current.next;
+  // Code Challenge 07
+  printNthFromLast(k) {
+    let len = 0;
+    let temp = this.head;
+
+    // 1) count the number of nodes in Linked List
+    while (temp !== null) {
+      temp = temp.next;
+      len++;
     }
+
+    // check if value of n is not more than length of
+    // the linked list
+    if (len < k)
+      return 'there isnt K of elements';
+
+    temp = this.head;
+    // 2) get the (len-n+1)th node from the beginning
+    for (let i = 1; i < len - k + 1; i++)
+      temp = temp.next;
+    return(temp.value);
+  }
+
+  /* Inserts a new Node at front of the list. */
+  push(value) {
+    /* 1 & 2: Allocate the Node &
+    Put in the data*/
+    let node = new Node(value);
+    /* 3. Make next of new Node as head */
+    node.next = this.head;
+    /* 4. Move the head to point to new Node */
+    this.head = node;
   }
 }
 
 let list = new LinkedList();
 console.log('empty list', list);
 
-// adding the head to the list
-list.add(1);
-list.add(2);
+// add head to list
+list.insert(1);
+list.insert(2);
+list.insert(3);
+list.insert(4);
+list.insert(5);
 
-console.log('populated list');
+// hurts these eyes, but it looks like a series of nested objects
+// console.log('populated list', JSON.stringify(list));
 
 list.traverse();
-list.traverseWithBool(2);
+// list.traverseWithCallback(console.log);
+console.log('include result', list.includes(3));
+console.log(list.toString());
+// list.traverseWithCallback(logger);
 
-module.exports = {
-  LinkedList,
-};
+// function logger(value){
+//   console.log(`Node Value: ${value}`);
+// }
+
+module.exports = LinkedList;
