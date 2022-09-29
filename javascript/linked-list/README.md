@@ -1,7 +1,7 @@
 # Challenge Summary - linked-list-zip - Code Ch 8
 
 ## Whiteboard Process
-![UML](./CodeCH08.png)
+![UML](./UML08.png)
 
 ## Approach & Efficiency
 O(1);
@@ -122,4 +122,4 @@ toString() {
     str += 'NULL';
     return str;
   }
-
+}
