@@ -117,6 +117,7 @@ class LinkedList {
       let newNode = new Node(newValue);
       newNode.next = current.next;
       current.next = newNode;
+      return;
     }
     current = current.next;
   }
@@ -162,7 +163,7 @@ list.add(2);
 list.add(3);
 list.add(4);
 list.add(5);
-list.insertAfter(1, 'biiiiii');
+// list.insertAfter(1, 'biiiiii');
 // let list2 = new LinkedList();
 // list2.add(2);
 // list2.add(4);
