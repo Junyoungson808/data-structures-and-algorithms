@@ -53,20 +53,12 @@ class LinkedList {
 
   // Code Challenge 05
   // add node to FRONT of linked list
-  insert(value){
+  insert(value) {
     let node = new Node(value);
-    node.next =this.head;
+    node.next = this.head;
     this.head = node;
   }
 
-
-  append(value) {
-    let current = this.head;
-    while (current) {
-      let current = current.next;
-    }
-    current = new Node(value);
-  }
 
   includes(value) {
     let result = false;
@@ -90,74 +82,87 @@ class LinkedList {
   }
 
   // Code Challenge 06
+  append(value) {
+    let current = this.head;
+    while (current) {
+      let current = current.next;
+    }
+    current = new Node(value);
+  }
+
   insertBefore(value, newValue) {
-    this.length++;
-    if (this.head.value === value) {
-      this.head = new Node(newValue, this.head);
-      return;
+    if (!this.head) {
+      throw new Error('Linked List is Empty');
     }
 
     let current = this.head;
-    while (current.next.value !== value) {
-      current = current.next;
+    while (current) {
+      if (current.next.value === value);
+      let newNode = new Node(newValue);
+      newNode.next = current.next;
+      current.next = newNode;
+      return;
     }
-    current.next = new Node(newValue, current.next);
+    current = current.next;
   }
 
   insertAfter(value, newValue) {
-    let current = this.head;
-    while (current.next !== null && current.value !== value) {
-      current = current.next;
+    if (!this.head) {
+      throw new Error('Linked List is Empty');
     }
-    current.next = new Node(newValue, current.next);
-    this.length++;
+    let current = this.head;
+
+    while (current) {
+      if (current.value === value);
+      let newNode = new Node(newValue);
+      newNode.next = current.next;
+      current.next = newNode;
+    }
+    current = current.next;
   }
 
   // Code Challenge 07
   kthFromEnd(k) {
     let offset = this.head;
     let nBehind = this.head;
-
     for (let i = 0; i < k; i++) {
       offset = offset.next;
     }
-
     while (offset.next) {
       offset = offset.next;
       nBehind = nBehind.next;
     }
-
     return nBehind.value;
   }
 }
 
 // Code Challenge 08
-function zipList(list1, list2) {
-  let current1 = list1.head;
-  let current2 = list2.head;
-  let outputList = new LinkedList();
+// function zipList(list1, list2) {
+//   let current1 = list1.head;
+//   let current2 = list2.head;
+//   let outputList = new LinkedList();
 
-  while (current1 || current2) {
-    if (current1) {
-      outputList.append(current1.value);
-      current1 = current1.next;
-    }
-    if (current2) {
-      outputList.append(current2.value);
-      current2 = current2.next;
-    }
-  }
-  return outputList;
-}
+//   while (current1 || current2) {
+//     if (current1) {
+//       outputList.append(current1.value);
+//       current1 = current1.next;
+//     }
+//     if (current2) {
+//       outputList.append(current2.value);
+//       current2 = current2.next;
+//     }
+//   }
+//   return outputList;
+// }
 
 let list = new LinkedList();
 // add head to list
-list.insert(1);
-list.insert(3);
-list.insert(5);
-list.insert(7);
-list.insert(9);
-
+list.add(1);
+list.add(2);
+list.add(3);
+list.add(4);
+list.add(5);
+list.insertAfter(1, 'biiiiii');
 // let list2 = new LinkedList();
 // list2.add(2);
 // list2.add(4);
