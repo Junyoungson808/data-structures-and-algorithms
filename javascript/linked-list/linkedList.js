@@ -67,7 +67,6 @@ class LinkedList {
       if (current.value === value) result = true;
       current = current.next;
     }
-
     return result;
   }
 
@@ -117,37 +116,20 @@ class LinkedList {
   }
 
   // Code Challenge 07
-  printNthFromLast(k) {
-    let len = 0;
-    let temp = this.head;
+  kthFromEnd(k) {
+    let offset = this.head;
+    let nBehind = this.head;
 
-    // 1) count the number of nodes in Linked List
-    while (temp !== null) {
-      temp = temp.next;
-      len++;
+    for(let i = 0; i < k; i++){
+      offset = offset.next;
     }
 
-    // check if value of n is not more than length of
-    // the linked list
-    if (len < k)
-      return 'there isnt K of elements';
+    while(offset.next) {
+      offset = offset.next;
+      nBehind = nBehind.next;
+    }
 
-    temp = this.head;
-    // 2) get the (len-n+1)th node from the beginning
-    for (let i = 1; i < len - k + 1; i++)
-      temp = temp.next;
-    return(temp.value);
-  }
-
-  /* Inserts a new Node at front of the list. */
-  push(value) {
-    /* 1 & 2: Allocate the Node &
-    Put in the data*/
-    let node = new Node(value);
-    /* 3. Make next of new Node as head */
-    node.next = this.head;
-    /* 4. Move the head to point to new Node */
-    this.head = node;
+    return nBehind.value;
   }
 }
 
@@ -166,6 +148,7 @@ list.insert(5);
 
 list.traverse();
 // list.traverseWithCallback(console.log);
+console.log(list.kthFromEnd(0));
 console.log('include result', list.includes(3));
 console.log(list.toString());
 // list.traverseWithCallback(logger);
