@@ -1,9 +1,11 @@
 # Challenge Summary - linked-list-zip - Code Ch 8
 
 ## Whiteboard Process
+
 ![UML](./UML08.png)
 
 ## Approach & Efficiency
+
 O(1);
 
 ## Solution
@@ -14,7 +16,7 @@ function zipList(list1, list2) {
   let current2 = list2.head;
   let outputList = new LinkedList();
 
-  while (current1 || current2) {
+while (current1 || current2) {
     if (current1) {
       outputList.append(current1.value);
       current1 = current1.next;
@@ -31,14 +33,15 @@ function zipList(list1, list2) {
 # Challenge Summary - linked-list-kth - Code Ch 7
 
 ## Whiteboard Process
+
 ![UML](./UML07.png)
 
 ## Approach & Efficiency
+
 O(1);
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-  // Code Challenge 07
   kthFromEnd(k) {
     let offset = this.head;
     let nBehind = this.head;
@@ -53,13 +56,14 @@ O(1);
     }
 
     return nBehind.value;
-  }
+}
 }
 -----
 
 # Challenge Summary - linked-list-insertions - Code Ch 6
 
 ## Whiteboard Process
+
 ![UML](./UML06.png)
 
 ## Approach & Efficiency
@@ -72,7 +76,7 @@ O(1);
       this.head = new Node(newValue, this.head);
       return;
     }
-
+  }
     let current = this.head;
     while (current.next.value !== value) {
       current = current.next;
@@ -80,7 +84,7 @@ O(1);
     current.next = new Node(newValue, current.next);
   }
 
-  insertAfter(value, newValue) {
+insertAfter(value, newValue) {
     let current = this.head;
     while (current.next !== null && current.value !== value) {
       current = current.next;
@@ -88,16 +92,19 @@ O(1);
     current.next = new Node(newValue, current.next);
     this.length++;
   }
+}
 -----
 
 # Challenge Summary - linked-list - Code Ch 5
 
 ## Whiteboard Process
+
 ![UML](./UML05.png)
 
 ## Approach & Efficiency
 
 ## Solution
+
 insert(value){
     let node = new Node(value);
     node.next =this.head;
@@ -116,7 +123,7 @@ toString() {
     let str = '';
     let current = this.head;
     while (current) {
-      str += `{ ${current.value} } -> `;
+      str += `{ ${current.value} } ->`;
       current = current.next;
     }
     str += 'NULL';
