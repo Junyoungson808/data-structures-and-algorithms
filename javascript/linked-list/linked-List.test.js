@@ -12,8 +12,9 @@ describe('Linked List - Code Ch 05', () => {
   });
   it ('Can properly insert into the linked list', () => {
     let list = new LinkedList();
+    list.insert(4);
+    list.insert(6);
     list.insert(8);
-    // list.insert(3);
     expect(list.head.value).toEqual(8);
     // expect(list.head.next.value).toEqual(3);
   });

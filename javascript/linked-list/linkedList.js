@@ -53,6 +53,13 @@ class LinkedList {
 
   // Code Challenge 05
   // add node to FRONT of linked list
+  insert(value){
+    let node = new Node(value);
+    node.next =this.head;
+    this.head = node;
+  }
+
+
   append(value) {
     let current = this.head;
     while (current) {
@@ -145,24 +152,24 @@ function zipList(list1, list2) {
 
 let list = new LinkedList();
 // add head to list
-list.add(1);
-list.add(3);
-list.add(5);
-list.add(7);
-list.add(9);
+list.insert(1);
+list.insert(3);
+list.insert(5);
+list.insert(7);
+list.insert(9);
 
-let list2 = new LinkedList();
-list2.add(2);
-list2.add(4);
-list2.add(6);
-list2.add(8);
-list2.add(10);
+// let list2 = new LinkedList();
+// list2.add(2);
+// list2.add(4);
+// list2.add(6);
+// list2.add(8);
+// list2.add(10);
 
-console.log('ziplist', zipList(list, list2).toString());
+// console.log('ziplist', zipList(list, list2).toString());
 // hurts these eyes, but it looks like a series of nested objects
 // console.log('populated list', JSON.stringify(list));
 
-// list.traverse();
+list.traverse();
 // list.traverseWithCallback(console.log);
 // console.log(list.kthFromEnd(0));
 // console.log('include result', list.includes(3));
