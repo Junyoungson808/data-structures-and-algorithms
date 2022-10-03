@@ -8,6 +8,12 @@ describe('Stack Tests', () => {
     expect(stack.top).toBeNull();
   });
 
+  test('Can successfully push onto a stack', () => {
+    const stack = new Stack();
+    stack.push(1);
+    expect(stack.top.value).toEqual(1);
+  });
+
   test('Can successfully push multiple onto a stack', () => {
     const stack = new Stack();
     stack.push(1);
@@ -30,4 +36,9 @@ describe('Stack Tests', () => {
     stack.pop(1);
     expect(stack.value).toEqual(null);
   });
+
+  test('Can successfully peek the next item the stack', () => {
+    // const stack = new Stack();
+  });
+
 });
