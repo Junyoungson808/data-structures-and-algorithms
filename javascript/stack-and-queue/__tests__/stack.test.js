@@ -1,6 +1,6 @@
 'use strict';
 
-const { Stack } = require('./index');
+const { Stack } = require('../index');
 
 describe('Stack Tests', () => {
   const stack = new Stack();
@@ -17,4 +17,4 @@ describe('Stack Tests', () => {
     stack.push(3);
     expect(stack.top.value).toEqual(1);
   });
-})
+});
