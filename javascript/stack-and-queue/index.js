@@ -15,18 +15,17 @@ class Stack {
   }
 
   push(value) {
-    let newNode = new Node;
+    let newNode = new Node(value);
     newNode.next = this.top;
     this.top = newNode(value);
-
   }
 
-  pop(value) {
+  pop() {
     if (this.top) {
       let temp = this.top;
       this.top = top.next;
       temp.next = null;
-      return temp(value);
+      return temp.value;
     } else {
       return null;
     }
@@ -53,7 +52,7 @@ class Queue {
   }
 
   enqueue(value) {
-    let newNode = new Node(value);
+    let newNode = new Node[value];
     if (this.size === 0) {
       this.front = newNode;
       this.back = newNode;
@@ -102,7 +101,7 @@ class Queue {
 }
 
 
-module.exports = { 
+module.exports = {
   Node,
   Stack,
   Queue,
