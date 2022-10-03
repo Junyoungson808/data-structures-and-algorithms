@@ -4,8 +4,7 @@ const { Stack } = require('../index');
 
 describe('Stack Tests', () => {
   const stack = new Stack();
-
-  test('Can successfully push onto a stack', () => {
+  test('Can check if stack is empty', () => {
     expect(stack.top).toBeNull();
   });
 
