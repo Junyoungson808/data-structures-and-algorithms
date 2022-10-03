@@ -9,20 +9,27 @@ class Node {
 
 class Stack {
   constructor() {
-    this.top = null;
+    this.head = null;
+    this.length = 0;
   }
 
   push(value) {
-    let newNode = new Node(value);
-    newNode.next = this.top;
-    this.top = newNode(value);
+    if (!this.top) {
+      this.top = new Node(value);
+    } else {
+      let current = this.top;
+      let newNode = new Node(value);
+      newNode.next = current;
+      this.top = newNode;
+    }
+    this.length++;
   }
 
   pop() {
     if (this.top) {
       let temp = this.top;
-      this.top = top.next;
-      temp.next = null;
+      this.top = this.top.next;
+      this.length--;
       return temp.value;
     } else {
       return null;
@@ -46,86 +53,74 @@ class Queue {
   constructor() {
     this.front = null;
     this.back = null;
-    this.size = 0;
+    this.length = 0;
   }
 
   enqueue(value) {
-    let newNode = new Node[value];
-    if (this.size === 0) {
-      this.front = newNode;
-      this.back = newNode;
-    } else {
+    let newNode = new Node(value);
+    if (this.front) {
       this.back.next = newNode;
-      this.back = newNode;
+    } else {
+      this.front = newNode;
     }
-    this.size++;
-    return this;
+    this.back = newNode;
+    this.length++;
   }
 
   dequeue() {
-    //if queue is empty return false
-    if (this.size === 0) return false;
-    //get dequeuednode
-    const dequeuedNode = this.first;
-    //get new first (could be NULL if stack is length 1)
-    const newFirst = this.first.next;
-    //if newFirst is null, reassign last to newFirst(null)
-    if (!newFirst) {
-      this.last = newFirst;
+    // Returns: the value from node from the front of the queue
+    // Should raise exception when called on empty queue
+    if (!this.front) {
+      throw 'TyperError:';
     }
-    //assign new first
-    this.first = newFirst;
-    //remove reference to list
-    dequeuedNode.next = null;
-    //remove 1 from size
-    this.size--;
-    //return dequeuednode
-    return dequeuedNode;
+
+    let current = this.front;
+    this.front = this.front.next;
+    this.length--;
+    return current.value;
   }
 
   peek() {
-    if (!this.back)
+    // Returns: Value of the node located at the front of the queue
+    // Should raise exception when called on empty stack
+    if (!this.front) {
+      console.log(`peek ${this.front.value}`);
       return this.value[0];
+    }
   }
-  // Arguments: none
-  // Returns: Value of the node located at the front of the queue
-  // Should raise exception when called on empty stack
 
   isEmpty() {
-    return this.front = null;
+    // Returns: Boolean indicating whether or not the queue is empty
+    return this.front === null;
   }
-  // Arguments: none
-  // Returns: Boolean indicating whether or not the queue is empty
 }
 
-class PsuedoQueue {
-  constructor() {
-    this.stack1 = new Stack();
-    this.stack2 = new Stack();
-  }
+// class PsuedoQueue {
+//   constructor() {
+//     this.stack1 = new Stack();
+//     this.stack2 = new Stack();
+//   }
 
-  enqueue(value) {
-    this.stack1.push(value);
-  }
+//   enqueue(value) {
+//     this.stack1.push(value);
+//   }
 
-  dequeue(value) {
-    while (!this.stack1.isEmpty()) {
-      // continue till stack 1 is empty -exit
-      this.stack2.push(this.stack1.pop());
-    }
-    let poppedNode = this.stack2.pop();
-    // continue till stack 1 is empty
-    while (!this.stack2.isEmpty()) {
-      this.stack1.push(this.stack2.pop());
-    }
-    // now stack2 has all of stack 1s nodes in reverse order
-    return poppedNode;
-  }
-};
+//   dequeue() {
+//     // stack 2 will be the reverse of stack 1, and will remove the first node from stack 1
+//     while (!this.stack1.isEmpty()) {
+//       // continue to push/pop until stack1 is empty...
+//       this.stack2.push(this.stack1.pop());
+//     }
+//     // stack2 now has all of stack1 nodes in reverse order
+//     let poppedNode = this.stack2.pop();
+//     while (!this.stack2.isEmpty()) {
+//       this.stack1.push(this.stack2.pop());
+//     }
+//     return poppedNode;
+//   }
+// }
 
 module.exports = {
-  Node,
   Stack,
   Queue,
-  PsuedoQueue,
 };
