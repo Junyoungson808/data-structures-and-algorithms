@@ -1,6 +1,5 @@
 'use strict';
 
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -11,7 +10,6 @@ class Node {
 class Stack {
   constructor() {
     this.top = null;
-
   }
 
   push(value) {
@@ -100,9 +98,34 @@ class Queue {
   // Returns: Boolean indicating whether or not the queue is empty
 }
 
+class PsuedoQueue {
+  constructor() {
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
+  }
+
+  enqueue(value) {
+    this.stack1.push(value);
+  }
+
+  dequeue(value) {
+    while (!this.stack1.isEmpty()) {
+      // continue till stack 1 is empty -exit
+      this.stack2.push(this.stack1.pop());
+    }
+    let poppedNode = this.stack2.pop();
+    // continue till stack 1 is empty
+    while (!this.stack2.isEmpty()) {
+      this.stack1.push(this.stack2.pop());
+    }
+    // now stack2 has all of stack 1s nodes in reverse order
+    return poppedNode;
+  }
+};
 
 module.exports = {
   Node,
   Stack,
   Queue,
+  PsuedoQueue,
 };

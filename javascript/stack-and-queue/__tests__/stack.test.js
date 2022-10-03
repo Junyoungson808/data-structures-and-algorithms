@@ -1,6 +1,10 @@
 'use strict';
 
-const { Stack } = require('../index');
+const { Stack, Queue, PsuedoQueue } = require('../index');
+
+const stack = new Stack();
+const queue = new Queue();
+const psuedoqueue = new PsuedoQueue();
 
 describe('Stack Tests', () => {
   const stack = new Stack();
@@ -41,4 +45,16 @@ describe('Stack Tests', () => {
     // const stack = new Stack();
   });
 
+  test('Can successfully substantiate a empty psuedoqueue', () => {
+    let pseudoQ = new PsuedoQueue();
+
+    expect(pseudoQ).toBeTruthy();
+  });
+
+  test('Can successfully enqueue into a psuedoqueue', () => {
+    let pseudoQ = new PsuedoQueue();
+
+    expect(PsuedoQueueTest1.dequeue()).toEqual(1);
+    expect(PsuedoQueueTest1.dequeue()).toBeTruthy();
+  });
 });
