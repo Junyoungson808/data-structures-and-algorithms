@@ -95,7 +95,7 @@ class Queue {
   }
 }
 
-// class PsuedoQueue {
+// class PseudoQueue {
 //   constructor() {
 //     this.stack1 = new Stack();
 //     this.stack2 = new Stack();

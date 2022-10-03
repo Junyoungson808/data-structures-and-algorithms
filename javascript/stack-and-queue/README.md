@@ -1,6 +1,6 @@
 # Challenge Summary
 <!-- Description of the challenge -->
-stack-queue-pseudo
+stack-queue-pseudo with Elain H 
 
 Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue
 

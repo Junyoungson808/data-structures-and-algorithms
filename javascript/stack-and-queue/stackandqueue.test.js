@@ -64,13 +64,13 @@ describe('Stacks & Queue Tests', () => {
     expect(queueTest.peek()).toEqual(1);
     expect(queueTest.back.value).toEqual(7);
   });
-  // test('Can successfully dequeue out of a queue the expected value', () => {
-  //   queueTest.dequeue();
+  test('Can successfully dequeue out of a queue the expected value', () => {
+    queueTest.dequeue();
 
-  //   expect(queueTest.isEmpty()).not.toBeTruthy();
-  //   expect(queueTest.peek()).toEqual(1);
-  // //   expect(queueTest.back.value).toEqual(7);
-  // });
+    expect(queueTest.isEmpty()).not.toBeTruthy();
+    expect(queueTest.peek()).toEqual(1);
+  //   expect(queueTest.back.value).toEqual(7);
+  });
 
 
 // Can successfully dequeue out of a queue the expected value
