@@ -2,7 +2,6 @@
 
 const { Queue } = require('./index');
 const { Animal, AnimalShelter } = require('./stack-queue-animal-shelter');
-// const stackTest = new Stack();
 const queueTest = new Queue();
 
 describe('Animal Shelter queue test', () => {

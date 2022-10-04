@@ -35,7 +35,7 @@ class AnimalShelter {
     case 'cat':
       return this.cats.dequeue();
     case null:
-      return this.dogs.front.time < this.cats.front.time
+      return this.dogs.front.value.time < this.cats.front.value.time
         ? this.dogs.dequeue()
         : this.cats.dequeue();
     default:
