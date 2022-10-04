@@ -33,6 +33,19 @@ Look at animalshelter.test.js
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
+class Animal {
+  constructor(name, species) {
+    this.name = name;
+    this.species = species;
+  }
+}
+
+class AnimalShelter {
+  constructor() {
+    this.dogs = new Queue();
+    this.cats = new Queue();
+  }
+
 enqueue(animal) {
     animal.time = Date.now();
     switch (animal.species) {
