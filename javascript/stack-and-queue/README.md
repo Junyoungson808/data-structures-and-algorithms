@@ -28,6 +28,9 @@ stack-queue-animal-shelter - Daniel Frey
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 Our approach to this would be O(1), We would iterate through the code and did not use shortcut code.
 
+Look at stack-queue-animal-shelter.js
+Look at animalshelter.test.js
+
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
 enqueue(animal) {
