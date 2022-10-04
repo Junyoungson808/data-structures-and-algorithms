@@ -9,7 +9,7 @@ Using a Linked List as the underlying data storage mechanism, implement both a S
 <!-- Embedded whiteboard image -->
 <!-- ![]()
 
-## Approach & Efficiency --> --> -->
+## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
 
