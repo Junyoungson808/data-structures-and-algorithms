@@ -1,44 +1,39 @@
 # Challenge Summary
 <!-- Description of the challenge -->
-stack-queue-pseudo with Elain H
+stack-queue-brackets with Stephen M
 
-Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue
-
+Multi-bracket Validation. write a function called validate brackets using a 'string' and returning a boolean, whether or not the brackets in the string are balanced.
 
 ## Whiteboard Process
 Embedded whiteboard image
-![UML](UML%20CodeCH11.png))
+![UML](UML13CodeCh.png))
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 We went with a O(n) approach.
 
 ## Solution
-<!-- Show how to run your code, and examples of it in action -->
-class PseudoQueue {
-  constructor() {
-    this.stack1 = new Stack();
-    this.stack2 = new Stack();
-  }
+Show how to run your code, and examples of it in action -->
+function validateBrackets(string) {
+  let stack = [];
+  let i = 0;
 
-  enqueue(value) {
-    this.stack1.push(value);
-  }
+  for (i = 0; i < string.length; i++) {
+    let character = stack[stack.length - 1];
 
-  dequeue() {
-    // stack 2 will be the reverse of stack 1, and will remove the first node from stack 1
-    while (!this.stack1.isEmpty()) {
-      // continue to push/pop until stack1 is empty...
-      this.stack2.push(this.stack1.pop());
-    }
-    // stack2 now has all of stack1 nodes in reverse order
-    let poppedNode = this.stack2.pop();
-    while (!this.stack2.isEmpty()) {
-      this.stack1.push(this.stack2.pop());
-    }
-    return poppedNode;
+    if (string[i] === '(' || string[i] === '{' || string[i] === '[') {
+
+      stack.push(string[i]);
+
+    } else if ((character === '(' && string[i] === ')') ||
+      (character === '{' && string[i] === '}') ||
+      (character === '[' && string[i] === ']')) {
+      stack.pop();
+    } else return false;
   }
+  return stack.length ? false : true;
 }
+
 
 
 <!-- # Challenge Summary
@@ -99,3 +94,45 @@ enqueue(animal) {
     }
   }
 } -->
+
+# Challenge Summary
+<!-- Description of the challenge -->
+stack-queue-pseudo with Elain H
+
+Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue
+
+
+## Whiteboard Process
+Embedded whiteboard image
+![UML](UML%20CodeCH11.png))
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+We went with a O(n) approach.
+
+## Solution
+Show how to run your code, and examples of it in action
+class PseudoQueue {
+  constructor() {
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
+  }
+
+  enqueue(value) {
+    this.stack1.push(value);
+  }
+
+  dequeue() {
+    // stack 2 will be the reverse of stack 1, and will remove the first node from stack 1
+    while (!this.stack1.isEmpty()) {
+      // continue to push/pop until stack1 is empty...
+      this.stack2.push(this.stack1.pop());
+    }
+    // stack2 now has all of stack1 nodes in reverse order
+    let poppedNode = this.stack2.pop();
+    while (!this.stack2.isEmpty()) {
+      this.stack1.push(this.stack2.pop());
+    }
+    return poppedNode;
+  }
+}

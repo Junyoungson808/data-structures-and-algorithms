@@ -120,8 +120,32 @@ class PseudoQueue {
   }
 }
 
+
+
+function validateBrackets(string) {
+  let stack = [];
+  let i = 0;
+
+  for (i = 0; i < string.length; i++) {
+    let character = stack[stack.length - 1];
+
+    if (string[i] === '(' || string[i] === '{' || string[i] === '[') {
+
+      stack.push(string[i]);
+
+    } else if ((character === '(' && string[i] === ')') ||
+      (character === '{' && string[i] === '}') ||
+      (character === '[' && string[i] === ']')) {
+      stack.pop();
+    } else return false;
+  }
+  return stack.length ? false : true;
+}
+
+
 module.exports = {
   Stack,
   Queue,
   PseudoQueue,
+  validateBrackets,
 };
