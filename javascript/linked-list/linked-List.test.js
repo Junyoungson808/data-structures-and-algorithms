@@ -1,10 +1,12 @@
 'use strict';
 
-const LinkedList = require('../../linked-list');
+const LinkedList = require('../linked-list/linkedList');
+const zipList = require('../linked-list/linkedList');
+
 
 describe('Linked List - Code Ch 05', () => {
+  let list = new LinkedList();
   it('Can successfully instantiate an empty linked list', () => {
-    let list = new LinkedList();
     console.log('this is my list', list);
     expect(list).toBeInstanceOf(LinkedList);
     expect(list.head).toBeNull();
@@ -60,7 +62,7 @@ describe('Linked List - Code Ch 05', () => {
 });
 
 describe('Linked List Insertions - Code Ch 06', () => {
-  const list = new LinkedList();
+  let list = new LinkedList();
   it('Can successfully instantiate an empty linked list', () => {
     expect(list).toBeInstanceOf(LinkedList);
     expect(list.head).toBeNull();
@@ -68,11 +70,11 @@ describe('Linked List Insertions - Code Ch 06', () => {
   });
   it('Can properly insert into the linked list', () => {
     let list = new LinkedList();
-    list.add(1);
-    list.add(2);
-    list.add(3);
-    list.add(4);
-    list.add(5);
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    list.insert(5);
     expect(list.toString())
       .toEqual('{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 5 } -> NULL');
 
