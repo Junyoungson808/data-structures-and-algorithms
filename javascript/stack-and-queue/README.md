@@ -6,7 +6,7 @@ Multi-bracket Validation. write a function called validate brackets using a 'str
 
 ## Whiteboard Process
 Embedded whiteboard image
-![UML](UML13CodeCh.png))
+![UML](UML13codech.png))
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
