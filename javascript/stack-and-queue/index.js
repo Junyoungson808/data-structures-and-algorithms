@@ -95,32 +95,33 @@ class Queue {
   }
 }
 
-// class PseudoQueue {
-//   constructor() {
-//     this.stack1 = new Stack();
-//     this.stack2 = new Stack();
-//   }
+class PseudoQueue {
+  constructor() {
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
+  }
 
-//   enqueue(value) {
-//     this.stack1.push(value);
-//   }
+  enqueue(value) {
+    this.stack1.push(value);
+  }
 
-//   dequeue() {
-//     // stack 2 will be the reverse of stack 1, and will remove the first node from stack 1
-//     while (!this.stack1.isEmpty()) {
-//       // continue to push/pop until stack1 is empty...
-//       this.stack2.push(this.stack1.pop());
-//     }
-//     // stack2 now has all of stack1 nodes in reverse order
-//     let poppedNode = this.stack2.pop();
-//     while (!this.stack2.isEmpty()) {
-//       this.stack1.push(this.stack2.pop());
-//     }
-//     return poppedNode;
-//   }
-// }
+  dequeue() {
+    // stack 2 will be the reverse of stack 1, and will remove the first node from stack 1
+    while (!this.stack1.isEmpty()) {
+      // continue to push/pop until stack1 is empty...
+      this.stack2.push(this.stack1.pop());
+    }
+    // stack2 now has all of stack1 nodes in reverse order
+    let poppedNode = this.stack2.pop();
+    while (!this.stack2.isEmpty()) {
+      this.stack1.push(this.stack2.pop());
+    }
+    return poppedNode;
+  }
+}
 
 module.exports = {
   Stack,
   Queue,
+  PseudoQueue,
 };
