@@ -34,8 +34,6 @@ function validateBrackets(string) {
   return stack.length ? false : true;
 }
 
-
-
 <!-- # Challenge Summary
 Description of the challenge
 stack-queue-animal-shelter - Daniel Frey
@@ -95,21 +93,21 @@ enqueue(animal) {
   }
 } -->
 
-# Challenge Summary
+<!-- # Challenge Summary -->
 <!-- Description of the challenge -->
-stack-queue-pseudo with Elain H
+<!-- stack-queue-pseudo with Elain H
 
-Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue
+Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue -->
 
 
-## Whiteboard Process
+<!-- ## Whiteboard Process
 Embedded whiteboard image
-![UML](UML%20CodeCH11.png))
+![UML](UML%20CodeCH11.png)) -->
 
-## Approach & Efficiency
+<!-- ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-We went with a O(n) approach.
-
+<!-- We went with a O(n) approach. -->
+<!-- 
 ## Solution
 Show how to run your code, and examples of it in action
 class PseudoQueue {
@@ -135,4 +133,4 @@ class PseudoQueue {
     }
     return poppedNode;
   }
-}
+} --> -->
