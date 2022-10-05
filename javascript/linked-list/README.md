@@ -2,6 +2,13 @@
 
 ## Whiteboard Process
 
+Write a function called zip lists
+Arguments: 2 linked lists
+Return: New Linked List, zipped as noted below
+Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the the zipped list.
+Try and keep additional space down to O(1)
+You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
 ![UML](./UML08.png)
 
 ## Approach & Efficiency
@@ -30,7 +37,7 @@ while (current1 || current2) {
 }
 -----
 
-# Challenge Summary - linked-list-kth - Code Ch 7
+<!-- # Challenge Summary - linked-list-kth - Code Ch 7
 
 ## Whiteboard Process
 
@@ -42,7 +49,7 @@ O(1);
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-  kthFromEnd(k) {
+  <!-- kthFromEnd(k) {
     let offset = this.head;
     let nBehind = this.head;
 
@@ -71,7 +78,7 @@ O(1);
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-  insertBefore(value, newValue) {
+  <!-- insertBefore(value, newValue) {
     this.length++;
     if (this.head.value === value) {
       this.head = new Node(newValue, this.head);
@@ -83,9 +90,9 @@ O(1);
       current = current.next;
     }
     current.next = new Node(newValue, current.next);
-  }
+  } -->
 
-insertAfter(value, newValue) {
+<!-- insertAfter(value, newValue) {
     let current = this.head;
     while (current.next !== null && current.value !== value) {
       current = current.next;
@@ -94,9 +101,9 @@ insertAfter(value, newValue) {
     this.length++;
   }
 }
------
+----- -->
 
-# Challenge Summary - linked-list - Code Ch 5
+<!-- # Challenge Summary - linked-list - Code Ch 5
 
 ## Whiteboard Process
 
@@ -130,4 +137,4 @@ toString() {
     str += 'NULL';
     return str;
   }
-}
+} -->
