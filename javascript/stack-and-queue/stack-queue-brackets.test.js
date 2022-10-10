@@ -22,4 +22,6 @@ describe('Validate if brackets are complete', () => {
     const response = stackTest.validateBrackets();
 
     expect(response).toEqual([]);
-  });
+  })
+});
+
