@@ -1,11 +1,11 @@
 # Challenge Summary
 <!-- Description of the challenge -->
-stack-queue-brackets with Stephen M
+stack-queue-brackets with Stephen M - code challenge 13
 
 Multi-bracket Validation. write a function called validate brackets using a 'string' and returning a boolean, whether or not the brackets in the string are balanced.
 
 ## Whiteboard Process
-Embedded whiteboard image
+<!-- Embedded whiteboard image -->
 ![UML](UML13codech.png))
 
 ## Approach & Efficiency
@@ -34,16 +34,16 @@ function validateBrackets(string) {
   return stack.length ? false : true;
 }
 
-<!-- # Challenge Summary
-Description of the challenge
-stack-queue-animal-shelter - Daniel Frey
+# Challenge Summary
+<!-- Description of the challenge -->
+stack-queue-animal-shelter - Daniel Frey - code ch 12
 
 ## Whiteboard Process
-Embedded whiteboard image
+<!-- Embedded whiteboard image -->
 ![UML Code Ch 12](codech12%20UML.png)
 
 ## Approach & Efficiency
-What approach did you take? Why? What is the Big O space/time for this approach?
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 Our approach to this would be O(1), We would iterate through the code and did not use shortcut code.
 
 Look at stack-queue-animal-shelter.js
@@ -51,7 +51,7 @@ Look at animalshelter.test.js
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-<!-- class Animal {
+class Animal {
   constructor(name, species) {
     this.name = name;
     this.species = species;
@@ -91,25 +91,24 @@ enqueue(animal) {
       throw new Error(`We don't serve that animal`);
     }
   }
-} -->
+}
 
-<!-- # Challenge Summary -->
+# Challenge Summary
 <!-- Description of the challenge -->
-<!-- stack-queue-pseudo with Elain H
+stack-queue-pseudo with Elain H - code ch 11
 
-Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue -->
+Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue
 
-
-<!-- ## Whiteboard Process
+## Whiteboard Process
 Embedded whiteboard image
-![UML](UML%20CodeCH11.png)) -->
+![UML](UML%20CodeCH11.png))
 
-<!-- ## Approach & Efficiency
+## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-<!-- We went with a O(n) approach. -->
-<!-- 
+ We went with a O(n) approach.
+
 ## Solution
-Show how to run your code, and examples of it in action
+<!-- Show how to run your code, and examples of it in action -->
 class PseudoQueue {
   constructor() {
     this.stack1 = new Stack();
@@ -133,4 +132,4 @@ class PseudoQueue {
     }
     return poppedNode;
   }
-} --> -->
+}
