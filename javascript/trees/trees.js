@@ -6,7 +6,7 @@ class Node {
     this.left = null;
     this.left = null;
   }
-};
+}
 
 class KaryNode {
   constructor(value, k) {
@@ -14,7 +14,7 @@ class KaryNode {
     this.k = k;
     this.children = [];
   }
-};
+}
 
 class BinaryTree {
   constructor() {
@@ -30,7 +30,7 @@ class BinaryTree {
       if (node.right) {
         traverse(node.right);
       }
-    }
+    };
     traverse(this.root);
   }
 
@@ -43,7 +43,7 @@ class BinaryTree {
       if (node.right) {
         traverse(node.right);
       }
-    }
+    };
     traverse(this.root);
   }
 
@@ -57,7 +57,7 @@ class BinaryTree {
       }
       traverse(this.root);
       console.log(node.value);
-    }
+    };
   }
 
   // breadth() {
@@ -98,3 +98,5 @@ module.export = {
   BinaryTree,
   BinarySearchTree,
 };
+
+
