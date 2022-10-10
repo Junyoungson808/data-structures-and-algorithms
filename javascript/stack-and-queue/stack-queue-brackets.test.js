@@ -12,8 +12,8 @@ describe('Validate if brackets are complete', () => {
     expect(stackTest.peek()).toEqual({});
   });
   test('Can successfully push multiple values onto a stack', () => {
-    stackTest.push((()));
-    stackTest.push({{}});
+    stackTest.push(());
+    stackTest.push({});
     stackTest.push([]);
     expect(stackTest.length).toBe([]);
     expect(stackTest.isEmpty()).not.toBeTruthy();
