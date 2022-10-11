@@ -1,7 +1,7 @@
 'use strict';
 
-const LinkedList = require('../linked-list/linkedList');
-const zipList = require('../linked-list/linkedList');
+// const LinkedList = require('../linked-list/linkedList');
+// const zipList = require('../linked-list/linkedList');
 
 
 describe('Linked List - Code Ch 05', () => {
