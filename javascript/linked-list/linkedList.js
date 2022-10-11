@@ -10,91 +10,143 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+    this.tail = null;
+    this.count = 0;
   }
 
-  // Code Challenge 05
   insert(value) {
-    let node = new Node(value);
-    if(!this.head){
-      node.next = this.head;
-      this.head = node;
+    // try {
+    let newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      this.count = this.count + 1;
+    } else {
+      let nextValue = this.head;
+      this.head = newNode;
+      newNode.next = nextValue;
+      this.count = this.count + 1;
     }
-  }
-
-  includes(value) {
-    let result = false;
-    let current = this.head;
-    while (current) {
-      if (current.value === value) result = true;
-      current = current.next;
-    }
-    return result;
-  }
-
-  toString() {
-    let current = this.head;
-    let str = '';
-    while (current) {
-      str += `{ ${current.value} } -> `;
-      current = current.next;
-    }
-    str += 'NULL';
-    return str;
-  }
-
-  // Code Challenge 06
-  append(value) {
-    let current = this.head;
-    while (current) {
-      let current = current.next;
-    }
-    current = new Node(value);
+    // } catch (e) {
+    //   console.log(`couldnt insert a value, ${e}`);
+    //   throw `couldn't insert a value, ${e}`;
+    // }
   }
 
   insertBefore(value, newValue) {
-    if (!this.head) {
-      throw new Error('Linked List is Empty');
+    // try {
+    let newNode = new Node(newValue);
+    let currentNode = this.head;
+    let previousNode = null;
+    while (currentNode.value !== value) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
     }
-
-    let current = this.head;
-    while (current) {
-      if (current.next.value === value);
-      let newNode = new Node(newValue);
-      newNode.next = current.next;
-      current.next = newNode;
-      return;
+    newNode.next = currentNode;
+    if (previousNode) {
+      previousNode.next = newNode;
+      this.count = this.count + 1;
+    } else {
+      this.head = newNode;
+      this.count = this.count + 1;
     }
-    current = current.next;
+    // } catch (e) {
+    //   console.log(`couldnt insert a value, ${e}`);
+    //   throw `couldn't insert a value, ${e}`;
+    // }
   }
 
   insertAfter(value, newValue) {
-    if (!this.head) {
-      throw new Error('Linked List is Empty');
+    // try {
+    let newNode = new Node(newValue);
+    let currentNode = this.head;
+    let nextNode = currentNode.next;
+    while (currentNode.value !== value) {
+      currentNode = currentNode.next;
+      nextNode = currentNode.next;
     }
-    let current = this.head;
-
-    while (current) {
-      if (current.value === value);
-      let newNode = new Node(newValue);
-      newNode.next = current.next;
-      current.next = newNode;
-      return;
-    }
-    current = current.next;
+    newNode.next = nextNode;
+    currentNode.next = newNode;
+    this.count = this.count + 1;
+    // } catch (e) {
+    //   console.log(`couldnt insert a value, ${e}`);
+    //   throw `couldn't insert a value, ${e}`;
+    // }
   }
 
-  // Code Challenge 07
+  append(value) {
+    let newNode = new Node(value);
+    // try {
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = newNode;
+      this.count = this.count + 1;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+      this.count = this.count + 1;
+    }
+    // } catch (e) {
+    //   console.log(`couldnt insert a value, ${e}`);
+    //   throw `couldn't insert a value, ${e}`;
+    // }
+  }
+
+  includes(value) {
+    // try {
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    return false;
+    // } catch (e) {
+    //   console.log(`couldnt insert a value, ${e}`);
+    //   throw `couldn't insert a value, ${e}`;
+    // }
+  }
+
   kthFromEnd(k) {
-    let offset = this.head;
-    let nBehind = this.head;
-    for (let i = 0; i < k; i++) {
-      offset = offset.next;
+    // try {
+    if (k === 0) {
+      return this.tail.value;
     }
-    while (offset.next) {
-      offset = offset.next;
-      nBehind = nBehind.next;
+    if (k < 0) {
+      return console.log('input should be a positive number');
     }
-    return nBehind.value;
+    let position = this.count - k;
+    if (position < 1) {
+      return console.log(`linked list has less thatn ${k} nodes`);
+    }
+    let currentNode = this.head;
+    for (let i = 1; i < position; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode.value;
+    // } catch (e) {
+    //   console.log(`couldnt insert a value, ${e}`);
+    //   throw `couldn't insert a value, ${e}`;
+    // }
+  }
+
+  toString() {
+    // try {
+    let string = '';
+    let currentNode = this.head;
+    while (currentNode) {
+      let stringValue = `{${currentNode.value}} ->`;
+      string = string + stringValue;
+      currentNode = currentNode.next;
+    }
+    string = string + 'NULL';
+    return string;
+    // } catch (e) {
+    //   console.log(`couldnt insert a value, ${e}`);
+    //   throw `couldn't insert a value, ${e}`;
+    // }
   }
 }
 
@@ -148,7 +200,7 @@ function zipList(list1, list2) {
 // }
 
 module.exports = {
-  LinkedList, 
+  LinkedList,
   zipList,
 };
 
