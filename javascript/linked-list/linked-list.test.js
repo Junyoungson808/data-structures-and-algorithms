@@ -103,8 +103,6 @@ describe('linked list testing function - code challenge 05-08', () => {
   });
 });
 
-
-
 // Can successfully insert a node before a node located i the middle of a linked list
 // Can successfully insert a node before the first node of a linked list
 // Can successfully insert after a node in the middle of the linked list

@@ -17,30 +17,12 @@ O(1);
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-// Code Challenge 08
-function zipList(list1, list2) {
-  let current1 = list1.head;
-  let current2 = list2.head;
-  let outputList = new LinkedList();
 
-while (current1 || current2) {
-    if (current1) {
-      outputList.append(current1.value);
-      current1 = current1.next;
-    }
-    if (current2) {
-      outputList.append(current2.value);
-      current2 = current2.next;
-    }
-  }
-  return outputList;
-}
 -----
 
 # Challenge Summary - linked-list-kth - Code Ch 7
 
 ## Whiteboard Process
-
 ![UML](./UML07.png)
 
 ## Approach & Efficiency
@@ -49,92 +31,53 @@ O(1);
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-kthFromEnd(k) {
-    let offset = this.head;
-    let nBehind = this.head;
 
-    for (let i = 0; i < k; i++) {
-      offset = offset.next;
-    }
-
-    while (offset.next) {
-      offset = offset.next;
-      nBehind = nBehind.next;
-    }
-
-    return nBehind.value;
-
-}
-}
 -----
 
 # Challenge Summary - linked-list-insertions - Code Ch 6
 
 ## Whiteboard Process
-
 ![UML](./UML06.png)
 
 ## Approach & Efficiency
+  Wrote more methods to our LinkedList class, append, insertBefore, insertAfter. The approach was to successfully insert before and after and append to our linked list. 
+
+  Node Class
+  Linked List:
+    append 
+    insert before
+    insert after
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-insertBefore(value, newValue) {
-    this.length++;
-    if (this.head.value === value) {
-      this.head = new Node(newValue, this.head);
-      return;
-    }
-  }
-    let current = this.head;
-    while (current.next.value !== value) {
-      current = current.next;
-    }
-    current.next = new Node(newValue, current.next);
-  }
-
-insertAfter(value, newValue) {
-    let current = this.head;
-    while (current.next !== null && current.value !== value) {
-      current = current.next;
-    }
-    current.next = new Node(newValue, current.next);
-    this.length++;
-  }
-}
+Can successfully add a node to the end of the linked list
+Can successfully add multiple nodes to the end of a linked list
+Can successfully insert a node before a node located i the middle of a linked list
+Can successfully insert a node before the first node of a linked list
+Can successfully insert after a node in the middle of the linked list
+Can successfully insert a node after the last node of the linked list
 -----
 
 # Challenge Summary - linked-list - Code Ch 5
 
 ## Whiteboard Process
-
 ![UML](./UML05.png)
 
 ## Approach & Efficiency
+  Created a Node, and Linked List class. Added three methods to the linkedlist class insert, includes, and to string. Create a linkedlist and traverse through the linked list and run methods accordingly.
+
+  Node Class
+  Linked List:
+    insert 
+    includes
+    toString
 
 ## Solution
 
-insert(value){
-    let node = new Node(value);
-    node.next =this.head;
-    this.head = node;
-  }
-includes(value) {
-    let result = false;
-    let current = this.head;
-    while (current) {
-      if (current.value === value) result = true;
-      current = current.next;
-    }
-    return result;
-  }
-toString() {
-    let str = '';
-    let current = this.head;
-    while (current) {
-      str += `{ ${current.value} } ->`;
-      current = current.next;
-    }
-    str += 'NULL';
-    return str;
-  }
-}
+Can successfully instantiate an empty linked list
+Can properly insert into the linked list
+The head property will properly point to the first node in the linked list
+Can properly insert multiple nodes into the linked list
+Will return true when finding a value within the linked list that exists
+Will return false when searching for a value in the linked list that does not exist
+Can properly return a collection of all the values that exist in the linked list
