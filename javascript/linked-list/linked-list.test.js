@@ -26,7 +26,6 @@ describe('linked list testing function - code challenge 05-08', () => {
     list.insert(1);
     list.insert(2);
     list.insert(3);
-
     expect(list.head.value).toEqual(3);
     expect(list.head.next.value).toEqual(2);
     expect(list.head.next.next.value).toEqual(1);
@@ -60,7 +59,6 @@ describe('linked list testing function - code challenge 05-08', () => {
     list.append(5);
     expect(list.tail.value).toBe(5);
   });
-
   test('Can successfully add multiple nodes to the end of a linked list', () => {
     let list = new LinkedList();
     list.insert(4);
