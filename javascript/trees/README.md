@@ -1,5 +1,23 @@
+# Trees - MaxValue - Code Ch 18
+
+This code challenge is to do a fizzbuzz tree traversal. Create a tree and traverse it and run a fizzbuzz function
+
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+![UML](Code%20Challenge%2018%20Fizz%20Buzz.png)
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+O(n) space
+O(n) time
+
+## Solution
+
+The solution we came with it isnt complete, but we tried doing this in Order that gave us a hard time. I didn't complete it.
+
 # Trees - MaxValue - Code Ch 16
-This code challenge is to create a method to find the max value in a binary tree. 
+
+This code challenge is to create a method to find the max value in a binary tree.
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
@@ -39,7 +57,7 @@ Understand the use of trees and how they function, using the preOrder, inOrder, 
 
 ## Challenge
 <!-- Description of the challenge -->
-Create a BinaryTree & BinarySearchTree class and use preOrder, inOrder, postOrder, add, and contains methods to the respective classes. As well as breadth method. 
+Create a BinaryTree & BinarySearchTree class and use preOrder, inOrder, postOrder, add, and contains methods to the respective classes. As well as breadth method.
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
@@ -47,4 +65,4 @@ On time On space
 
 ## API
 <!-- Description of each method publicly available in each of your trees -->
-no API used. 
+no API used.

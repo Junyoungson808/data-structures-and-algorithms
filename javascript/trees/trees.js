@@ -22,57 +22,63 @@ class BinaryTree {
   }
 
   preOrder() {
-    const traverse = (node) => {
-      console.log(node.value);
-      if (node.left) {
-        traverse(node.left);
-      }
-      if (node.right) {
-        traverse(node.right);
-      }
-    };
-    traverse(this.root);
+    let current = this.root;
+    let arr = [];
+    this.preOrderHelper(current, arr);
+    return arr;
+  }
+  preOrderHelper(current, arr) {
+    arr.push(current.value);
+    if (current.left) {
+      this.preOrderHelper(current.left, arr);
+    }
+    if (current.right) {
+      this.preOrderHelper(current.right, arr);
+    }
   }
 
   inOrder() {
-    const traverse = (node) => {
-      if (node.left) {
-        traverse(node.left);
-      }
-      console.log(node.value);
-      if (node.right) {
-        traverse(node.right);
-      }
-    };
-    traverse(this.root);
+    let current = this.root;
+    let arr = [];
+    this.inOrderHelper(current, arr);
+    return arr;
+  }
+  inOrderHelper(current, arr) {
+    if (current.left) {
+      this.inOrderHelper(current.left, arr);
+    }
+    if (current.right) {
+      this.inOrderHelper(current.right, arr);
+    }
   }
 
   postOrder() {
-    const traverse = (node) => {
-      if (node.left) {
-        traverse(node.left);
-      }
-      if (node.right) {
-        traverse(node.right);
-      }
-      traverse(this.root);
-      console.log(node.value);
-    };
+    let current = this.root;
+    let arr = [];
+    this.postOrderHelper(current, arr);
+    return arr;
+  }
+  postOrderHelper(current, arr) {
+    if (current.left) {
+      this.postOrderHelper(current.left, arr);
+    }
+    if (current.right) {
+      this.postOrderHelper(current.right, arr);
+    }
   }
 
-  // breadth() {
-  // }
+  // breadthFirst(){}
 
   findMax() {
-    return this.doFindMax(this.root);
+    return this.findMaxHelper(this.root);
   }
-  doFindMax(node) {
+  findMaxHelper(node) {
     if (!node) {
       return;
     }
     let value = node.value;
-    let leftValue = this.doFindMax(node.left);
-    let rightValue = this.doFindMax(node.right);
+    let leftValue = this.findMaxHelper(node.left);
+    let rightValue = this.findMaxHelper(node.right);
 
     if (leftValue > value) {
       value = leftValue;
@@ -84,34 +90,58 @@ class BinaryTree {
   }
 }
 
-
 class BinarySearchTree {
   constructor() {
     this.root = null;
   }
 
-  // add(value) {
-  //   var newNode = new Node(value);
-  //   if (this.root === null)
-  //     this.root = newNode;
-  //   else
-  //     this.insertNode(this.root, newNode);
-  // }
+  add(value) {
+    if (!this.root) {
+      this.root = new Node(value);
+      return;
+    }
+    let current = this.root;
+    while (current) {
+      if (current.value > value) {
+        if (current.left) {
+          current = current.left;
+        } else {
+          current.left = new Node(value);
+          return;
+        }
+      } else {
+        if (current.right) {
+          current = current.right;
+        } else {
+          current.right = new Node(value);
+          return;
+        }
+      }
+    }
+  }
 
   contains(value) {
-    if (this.value === value) {
-      return this;
-    }
-    if (value < this.value && this.left) {
-      return this.left.conains(value);
-    } else if (value > this.value && this.right) {
-      return this.right.contains(value);
-    } else {
-      return null;
+    let current = this.root;
+    while (current) {
+      if (this.value === value) {
+        return true;
+      }
+      if (current.value > value) {
+        if (current.left) {
+          current = current.left;
+        } else {
+          return false;
+        }
+      } else {
+        if (current.right) {
+          current = current.right;
+        } else {
+          return false;
+        }
+      }
     }
   }
 }
-
 
 
 // testTree.root = new Node(2);

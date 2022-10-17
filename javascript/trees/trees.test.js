@@ -1,14 +1,11 @@
 'use strict';
 
-const { BinaryTree } = require('./trees');
+const { Node, KaryNode, BinaryTree, BinarySearchTree }  = require('./trees.js');
 
 describe('Testing tree data structures', () => {
   test('Can successfully instantiate an empty tree', () => {
-    const treeTest = new BinaryTree();
-
-    expect(treeTest.value).toBe('null');
-    expect(treeTest.left).toBe('null');
-    expect(treeTest.right).toBe('null');
+    let tree = new BinaryTree();
+    expect(tree.root).toBe('null');
   });
   // test('Can successfully instantiate a tree with a single root node', () => {
   //   const treeTest = new BinaryTree();
