@@ -2,6 +2,8 @@
 <!-- Description of the challenge -->
 Merge Sort function is a sorting algorithm that is based ona  divide and conquer paradigm. This method breaks down the given array into smaller parts until it cannot be broken down any further. Once the elements are broken down it merges them together in a sorted manner.
 
+## Collaborator: [Stephen Martinez](https://github.com/SdMartinez13)
+
 ## ![Whiteboard Process](./Untitled%20(3).png)
 <!-- Embedded whiteboard image -->
 
