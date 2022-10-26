@@ -5,7 +5,6 @@ Insertion sort is a function taht takes in an array of integers as an argument. 
 ## ![Whiteboard Process](./Untitled%20(1).png)
 <!-- Embedded whiteboard image -->
 
-
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 Time Complexity: O(N^2)
