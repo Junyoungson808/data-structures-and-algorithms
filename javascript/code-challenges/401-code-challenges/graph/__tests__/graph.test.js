@@ -53,7 +53,7 @@ describe('Testing Graph Built-in Methods', () => {
     expect(vertex1edges[1].weight).toBe(3);
     expect(vertex1edges[2].weight).toBe(4);
   });
-  it('The proper size is returned, representing the number of nodes in the graph', ()=> {
+  it('The proper size is returned, representing the number of nodes in the graph', ()=> {     //6
     let graph = new Graph();
     graph.addVertex(1);
     graph.addVertex(2);
@@ -62,12 +62,12 @@ describe('Testing Graph Built-in Methods', () => {
     let size = graph.getSize();
     expect(size).toBe(4);
   });
-  it('A graph with only one node and edge can be properly returned', ()=> {
+  it('A graph with only one node and edge can be properly returned', ()=> {    //7
     let graph = new Graph();
     graph.addVertex(1);
     expect(graph).toBeTruthy();
   });
-  it('Breadth Test 1', ()=> {
+  it('Breadth Test 1', ()=> {  
     let graph = new Graph();
     graph.addVertex(1);
     expect(graph).toBeTruthy();

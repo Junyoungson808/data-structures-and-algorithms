@@ -33,7 +33,11 @@ module.exports = class Graph {
   }
 
   getNeighbors(vertex) {
-    return this.adjacencyList.get(vertex);
+    return [...this.adjacencyList.get(vertex)];
+  }
+
+  getNodes(){
+    return this.adjacencyList.keys;
   }
 
   getVertices(){
@@ -46,23 +50,23 @@ module.exports = class Graph {
 
   breadthFirst(vertex){
     const queue = [];
-    const visitedNodes = new Set();
+    const visited = new Set();
     queue.push(vertex);
-    visitedNodes.add(vertex);
+    visited.add(vertex);
     while(queue.length) {
       const current = queue.shift();
       let neighbors = this.getNeighbors(current);
       for (let adjacencyList of neighbors) {
         let neighbor = adjacencyList.vertex;
-        if(!visitedNodes.has(neighbor)) {
+        if(!visited.has(neighbor)) {
           queue.push(neighbor);
-          visitedNodes.add(neighbor);
+          visited.add(neighbor);
         } else {
           continue;
         }
       }
     }
-    return visitedNodes;
+    return visited;
   }
 };
 
