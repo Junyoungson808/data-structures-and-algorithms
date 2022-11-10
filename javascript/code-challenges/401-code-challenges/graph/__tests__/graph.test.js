@@ -82,5 +82,16 @@ describe('Testing Graph Built-in Methods', () => {
     graph.addVertex(1);
     expect(graph).toBeTruthy();
   });
+  it('Depth Test 1', ()=> {
+    let graph = new Graph(4);
+    graph.addVertex(0, 1);
+    graph.addVertex(0, 2);
+    graph.addVertex(1, 2);
+    graph.addVertex(2, 0);
+    graph.addVertex(2, 3);
+    graph.addVertex(3, 3);
+    graph.breadthFirst(2);
+    console.log(breadthFirst(2));
+  });
 
 });

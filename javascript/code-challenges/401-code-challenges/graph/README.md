@@ -4,7 +4,7 @@
 
 ## Challenge
 <!-- Description of the challenge -->
-Create a Graph data structure, implement addVertex, addDirectedEdge, getNeighbors, getVertices, and breadthFirst. Test all graph methods.
+Create a Graph data structure, implement addVertex, addDirectedEdge, getNeighbors, getVertices, breadthFirst, and depthFirst. Test all graph methods.
 
 Node can be successfully added to the graph
 An edge can be successfully added to the graph
@@ -28,21 +28,10 @@ This method should hash the key, and set the key and value pair in the table, ha
 Should a given key already exist, replace its value from the value argument given to this method.
 
 addDirectedEdge(startVertex, endVertex, weight)
-Arguments: key
-Returns: Value associated with that key in the table
-
 getNeighbors(vertex)
-Arguments: key
-Returns: Boolean, indicating if the key exists in the table already.
-
 getVertices()
-Returns: Collection of keys
-
 breadthFirst(vertex)
-Arguments: key
-Returns: Index in the collection for that key
-
+depthFirst(root, cb)
 
 ## Links
-[freecodecamp-HashTables](https://www.freecodecamp.org/news/javascript-hash-table-associative-array-hashing-in-js/#:~:text=You%20can%20implement%20a%20Hash,value%20pairs%20from%20the%20table.)
-[HashTables || Data Structures - youtube](https://www.youtube.com/watch?v=QuFPIZj55hU&list=RDLVQuFPIZj55hU&index=1)
+[freecodecamp-Graphs](https://www.freecodecamp.org/news/8-essential-graph-algorithms-in-javascript/)
