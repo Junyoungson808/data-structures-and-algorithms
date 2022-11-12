@@ -10,25 +10,27 @@ class Node {
 class Stack {
   constructor() {
     this.head = null;
+    this.tail = null;
     this.length = 0;
   }
 
   push(value) {
-    if (!this.top) {
-      this.top = new Node(value);
+    let newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
     } else {
-      let current = this.top;
-      let newNode = new Node(value);
-      newNode.next = current;
-      this.top = newNode;
+      let tempNode = this.head;
+      this.head = newNode;
+      this.head.next = tempNode;
     }
     this.length++;
   }
 
   pop() {
-    if (this.top) {
-      let temp = this.top;
-      this.top = this.top.next;
+    if (this.head) {
+      let temp = this.head;
+      this.head = this.head.next;
       this.length--;
       return temp.value;
     } else {
@@ -37,15 +39,15 @@ class Stack {
   }
 
   peek() {
-    if (this.top) {
-      return this.top.value;
+    if (this.head) {
+      return this.head.value;
     } else {
       return null;
     }
   }
 
   isEmpty() {
-    return this.top === null;
+    return this.head === null;
   }
 }
 
