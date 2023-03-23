@@ -1,5 +1,7 @@
 'use strict';
 
+const { Stack } = require(".");
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -13,4 +15,23 @@ const websites = [
   'https://www.github.com',
   'https://www.linkedin.com'
 ];
+
+function backButtongHistory(websites) {
+  const history = new Stack();
+  websites.forEach((site) => {
+    history.push(site);
+  });
+  function back() {
+    if(history.isEmpty()) {
+      return null;
+    }
+    return history.pop();
+  }
+
+  console.log(back()); // should print 'https://www.linkedin.com'
+  console.log(back()); // should print 'https://www.github.com'
+  console.log(back()); // should print 'https://www.facebook.com'
+  console.log(back()); // should print 'https://www.google..com'
+  console.log(back()); // should print null (stack is empty)
+}
 
