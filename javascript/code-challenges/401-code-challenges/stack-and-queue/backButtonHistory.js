@@ -16,7 +16,7 @@ const websites = [
   'https://www.linkedin.com'
 ];
 
-function backButtongHistory(websites) {
+function backButtonHistory(websites) {
   const history = new Stack();
   websites.forEach((site) => {
     history.push(site);
@@ -35,3 +35,4 @@ function backButtongHistory(websites) {
   console.log(back()); // should print null (stack is empty)
 }
 
+backButtonHistory();
