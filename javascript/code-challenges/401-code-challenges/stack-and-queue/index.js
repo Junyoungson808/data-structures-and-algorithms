@@ -3,34 +3,33 @@
 class Node {
   constructor(value) {
     this.value = value;
-    this.next = null;
   }
 }
 
 class Stack {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.top = null;
+    // this.tail = null;
     this.length = 0;
   }
 
   push(value) {
     let newNode = new Node(value);
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
+    if (!this.top) {
+      this.top = newNode;
+      // this.tail = newNode;
     } else {
-      let tempNode = this.head;
-      this.head = newNode;
-      this.head.next = tempNode;
+      let tempNode = this.top;
+      this.top = newNode;
+      this.top.next = tempNode;
     }
     this.length++;
   }
 
   pop() {
-    if (this.head) {
-      let temp = this.head;
-      this.head = this.head.next;
+    if (this.top) {
+      let temp = this.top;
+      this.top = this.top.next;
       this.length--;
       return temp.value;
     } else {
@@ -39,15 +38,15 @@ class Stack {
   }
 
   peek() {
-    if (this.head) {
-      return this.head.value;
+    if (this.top) {
+      return this.top.value;
     } else {
       return null;
     }
   }
 
   isEmpty() {
-    return this.head === null;
+    return this.top === null;
   }
 }
 
